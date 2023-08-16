@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+    entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'index.bundle.js',
@@ -11,25 +12,27 @@ module.exports = {
             directory: path.resolve(__dirname, 'src'),
             publicPath: '/',
         },
-        port: 3010,
+        port: 8080, //3010
         open: true,
         hot: true,
         /**
      * proxy is required in order to make api calls to
      * express server while using hot-reload webpack server
      * routes api fetch requests from localhost:8080/api/* (webpack dev server)
-     * to localhost:3000/api/* (where our Express server is running)
+     * to localhost:3010/api/* (where our Express server is running)
      */
-        proxy: {
-            '/api/**': {
-                target: 'http://localhost:3010/',
-                secure: false,
-            },
-            '/assets/**': {
-                target: 'http://localhost:3010/',
-                secure: false,
-            },
-        },
+        // proxy: {
+        //     //'*': 'http://localhost:3010/'
+        //     '/api/**': {
+
+        //         target: 'http://localhost:3010/',
+        //         secure: false,
+        //     },
+        //     '/assets/**': {
+        //         target: 'http://localhost:3010/',
+        //         secure: false,
+        //     },
+        // },
     },
     module: {
         rules: [

@@ -1,12 +1,13 @@
 import React from "react";
+// import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 export function App() {
     return (
-        <div class="masterDiv">
-            <h1> Welcome Micah {new Date().toString() } </h1>
-            <div class="button">
-            <button class="enterButton">Press to enter list</button>
-            </div>
+        <div className="todo-app">
+            <TodoList />
         </div>
     );
 };
+
+export default App;
