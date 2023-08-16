@@ -1,3 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+    border: solid black;
+}
+.masterDiv {
+   //background-color: lightblue; 
+}
+#app {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
 h1 {
-    color: blue;
+  color: green;
+  text-align: center;
+}
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.enterButton {
+  display: flex;
+  height: 60px;
+  width: 300px;
+  margin: -20px -50px;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  margin: 10px;
 }
