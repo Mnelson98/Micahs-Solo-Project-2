@@ -1,7 +1,17 @@
 const path = require('path');
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); // <<<---- allows you to make fetch requests from the front-end
 const mongoose = require('mongoose');
+const axios = require('axios')
+const cherrio = require('cheerio')
+const app = express();
+const PORT = 3010;
+
+// HANDLE PARSER REQUEST BODIES //
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors()); // <<<---- allows you to make fetch requests from the front-end
+
 
 // ROUTERS //
 const todosRouter = require('./routes/todos')
@@ -14,15 +24,6 @@ mongoose.connect("mongodb+srv://nelsonmicahg777:admin@cluster0.ikv272a.mongodb.n
     .then(() => console.log("Connected to DB"))
     .catch(console.error);
 
-const PORT = 3010;
-
-//use express and cors;
-const app = express();
-
-// HANDLE PARSER REQUEST BODIES //
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 //DEFINE ROUTE HANDLERS (USE ROUTERS) //
 app.use('/todos', todosRouter);
