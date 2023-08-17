@@ -39,20 +39,23 @@ function TodoList() {
         // make a post request to the todos/remove endpoint and build out the removal of that document in the backend
        await fetch('http://localhost:3010/todos/done', {
             method: 'DELETE',
-            // headers: {
-            //     Accept: "application/json", 'Content-Type': 'text/plain'
-            // },
-            body: JSON.stringify(id)
+            //body: JSON.stringify(id),
+            headers: {"id": id}, 
         })
         // .then(remDoc => remDoc.json())
         // .then(remDoc => console.log(remDoc))
+        const currArr = [...todos]
+        console.log(currArr)
 
+        const refreshedArr = [];
 
-        const removeArr = [...todos].filter(todo => {
-            todo.id !== id
+        const removeArr = currArr.forEach (el => {
+            if (el.id != id) refreshedArr.push(el)
         })
 
-        setTodos(removeArr);
+        console.log('REFRESH: ', refreshedArr);
+
+        setTodos(refreshedArr);
     }
 
 
@@ -61,7 +64,7 @@ function TodoList() {
     
     return (
         <div>
-            <h1>Let's plan some stuff!</h1>
+            <h1 className='cardheading'>Let's plan some stuff!</h1>
             <TodoForm onSubmit={addTodo} />
 
             {todoArray}

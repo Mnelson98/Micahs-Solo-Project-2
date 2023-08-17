@@ -14,6 +14,7 @@ router.post('/', async (req, res) => { // <<<---- eventually will create tasks i
     try {
         // MONGOOSE MODEL CALL //
         const todo = await Todo.create(req.body)
+        // await Todo.deleteMany({})
         console.log(todo)
         return res.status(200).json(todo)
     } catch (error) {
@@ -24,8 +25,10 @@ router.post('/', async (req, res) => { // <<<---- eventually will create tasks i
 router.delete('/done', async (req, res) => {
     console.log('delete route hit!!!')
     try {
-        console.log('THIS IS REQUEST: ', req.body)
-        return res.status(200)
+        // console.log('THIS IS REQUEST: ', req.headers.id)
+        const id = req.headers.id;
+        const removed = await Todo.deleteOne({ id: id })
+        return res.status(200).send('You\'re crushing it!')
     } catch (err) {
         console.log(err)
     }

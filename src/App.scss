@@ -5,7 +5,20 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
   }
-  
+
+.headerdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.appheader {
+    color: black;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
   body {
     background: lightgreen;
   }
@@ -18,12 +31,12 @@
     min-height: 650px;
     background: black;
     text-align: center;
-    margin: 128px auto;
+    margin: 56px auto;
     padding-bottom: 32px;
   }
   
-  h1 {
-    margin: 32px 0;
+  .cardheading {
+    margin: 55px 0;
     color: #fff;
     font-size: 24px;
   }
@@ -50,13 +63,16 @@
       lightgreen,
       green
     );
+    border-radius: 30px;
     color: black;
     font-weight: bold;
     text-transform: capitalize;
+    margin-left: 10px;
   }
   
   .todo-input.edit {
     border: 2px solid lightgrey;
+    border-radius: 25px
   }
   
   .todo-button.edit {

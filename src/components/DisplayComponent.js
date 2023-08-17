@@ -1,5 +1,5 @@
 import React from 'react'
-import { RiCloseCircleLine } from 'react-icons/ri'
+import { MdDoneOutline } from 'react-icons/Md'
 
 const DisplayComponent = ({ todo, removeTodo }) => {
   return (
@@ -8,7 +8,7 @@ const DisplayComponent = ({ todo, removeTodo }) => {
         {todo.text}
       </div>
       <div className="icons">
-        <RiCloseCircleLine
+        <MdDoneOutline
           onClick={() => removeTodo(todo.id)}
           className='delete-icon'
         />
